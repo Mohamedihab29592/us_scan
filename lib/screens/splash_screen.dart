@@ -13,6 +13,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   int counter = 3; // Set the duration in seconds
   late Timer _timer;
+
   @override
   void initState() {
     super.initState();
@@ -30,22 +31,25 @@ class _SplashScreenState extends State<SplashScreen> {
       }
     });
   }
-  @override
-  void dispose() {
-    _timer.cancel();
-    super.dispose();
-  }
+
+
+
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(body: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Scaffold(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+              child: SizedBox(
+                  height: 150,
+                  child: Image.asset(
+                    "assets/images/onboarding_image.png",
+                  ))),
+          const Text('Universal Scanner',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
 
-      children: [
-        Center(child: Container(
-            height: 300,
-            child: Image.asset("assets/images/onboarding_image.png",))),
-      ],
-
-    ),);
+        ],
+      ),
+    );
   }
 }

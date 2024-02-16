@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:us_scanner/screens/doc_scanned.dart';
 
-class ScanScreen extends StatelessWidget {
+class ScanScreen extends StatefulWidget {
   const ScanScreen({super.key});
+
+  @override
+  State<ScanScreen> createState() => _ScanScreenState();
+}
+bool isOpen = false;
+
+class _ScanScreenState extends State<ScanScreen> {
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +64,7 @@ class ScanScreen extends StatelessWidget {
             const Spacer(),
             Center(
               child: SingleChildScrollView(
-                physics: AlwaysScrollableScrollPhysics(),
+                physics: const AlwaysScrollableScrollPhysics(),
                 child: Column(
                   children: [
                     SizedBox(
@@ -83,62 +90,102 @@ class ScanScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const Spacer(),
+           const Spacer(),
+            if(isOpen)
 
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                color: Colors.black,
+            Container(
+              width: 380,
+              height: 130,
+              color: Colors.black,
+              child:  Padding(
                 padding: const EdgeInsets.all(20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        // Add your logic for the first icon here
-                      },
-                      child: const Icon(
-                        Icons.adf_scanner,
-                        color: Colors.deepOrangeAccent,
+                child: Column(children: [
+                  InkWell(
+                    onTap: (){
+
+                    },
+                    child: const Row(children: [
+                      Icon(Icons.camera,color: Color(0xffff6c22),),
+                      SizedBox(width: 5,),
+                      Text('Camera',)
+
+                    ],),
+                  ),
+                  const Spacer(),
+                  InkWell(
+                    onTap: (){
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context) => const DocScanned()));
+                    },
+                    child: const Row(children: [
+                      Icon(Icons.add_card_sharp,color: Color(0xffff6c22),),
+                      SizedBox(width: 5,),
+                      Text('File',)
+
+                    ],),
+                  ),
+
+
+
+
+                ],),
+              ),
+            ),
+
+            Container(
+              width: double.infinity,
+              color: Colors.black,
+              padding: const EdgeInsets.all(20.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      // Add your logic for the first icon here
+                    },
+                    child: const Icon(
+                      Icons.adf_scanner,
+                      color: Colors.deepOrangeAccent,
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+
+                     setState(() {
+                       isOpen = !isOpen;
+                     });
+
+
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.deepOrangeAccent,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                     ),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Add your button click logic here
-                        Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => const DocScanned()),
-                        );
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.deepOrangeAccent,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8.0),
+                    child: const Row(
+                      children: [
+                        Icon(
+                          Icons.add,
+                          color: Colors.white,
                         ),
-                      ),
-                      child: const Row(
-                        children: [
-                          Icon(
-                            Icons.add,
-                            color: Colors.white,
-                          ),
-                          Text(
-                            'Scan',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ],
-                      ),
+                        Text(
+                          'Scan',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      ],
                     ),
-                    InkWell(
-                      onTap: () {
-                        // Add your logic for the third icon here
-                      },
-                      child: const Icon(
-                        Icons.settings,
-                        color: Colors.deepOrangeAccent,
-                      ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      // Add your logic for the third icon here
+                    },
+                    child: const Icon(
+                      Icons.settings,
+                      color: Colors.deepOrangeAccent,
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],

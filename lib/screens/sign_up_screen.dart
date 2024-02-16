@@ -11,10 +11,14 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+
+
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+
       backgroundColor: Colors.white,
+
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(60.0),
@@ -24,13 +28,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const Center(
                   child: Text(
                 'Sign up',
-                style: TextStyle(fontSize: 20,),
+                style: TextStyle(fontSize: 20,color: Colors.black),
               )),
 
-              const MyFormTextField(title: 'name',),
+               const MyFormTextField(title: 'name',),
               const MyFormTextField(title: 'Email',),
               const MyFormTextField(title: 'password',),
               const MyFormTextField(title: 'confirm\npassword',),
+
               ElevatedButton(
                 onPressed: () {
                   // Add your button click logic here
@@ -39,12 +44,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.black, // Set the background color to black
+                  backgroundColor: Colors.black, // Set the background color to black
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8.0), // Set the border radius
                   ),
                 ),
-                child: const Text('Sign up'),
+                child: const Text('Sign up',style: TextStyle(color: Color(0xffff6c22)),),
               )
 
 

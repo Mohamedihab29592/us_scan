@@ -17,7 +17,7 @@ class DocScanned extends StatelessWidget {
                   ),
                   Container(
                     color: Colors.white,
-                    height: 40,
+                    height: 50,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 20, right: 20),
                       child: Row(
@@ -61,7 +61,7 @@ class DocScanned extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Container(
-                  height: 70,
+                  height: 60,
                   decoration: BoxDecoration(
                     color: Colors.black,
                     borderRadius: BorderRadius.circular(
@@ -73,7 +73,7 @@ class DocScanned extends StatelessWidget {
                       InkWell(
                         onTap: () {
                           // Add your logic for the first icon here
-                          _showBottomSheet(context);
+                          _showBottomSheetWidget(context);
                         },
                         child: const Icon(
                           Icons.add_box_outlined,
@@ -113,7 +113,7 @@ class DocScanned extends StatelessWidget {
     );
   }
 
-  void _showBottomSheet(BuildContext context) {
+  void _showBottomSheetWidget(BuildContext context) {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext context) {
@@ -156,7 +156,7 @@ class DocScanned extends StatelessWidget {
                 const SizedBox(height: 16),
                 Divider(color: Colors.grey.shade400),
                 const SizedBox(height: 16),
-                _buildOptionContainer('Copy', Icons.copy, () {
+                buildOptionContainer('Copy', Icons.copy, () {
                   // Handle Copy
                 }),
                 Padding(
@@ -171,26 +171,28 @@ class DocScanned extends StatelessWidget {
                       children: [
 
 
-                        _buildOptionContainer('Markup', Icons.markunread_mailbox_outlined, () {
+                        buildOptionContainer('Markup', Icons.markunread_mailbox_outlined, () {
                           // Handle Markup
                         }),
                         Divider(color: Colors.grey.shade400,),
-                        _buildOptionContainer('Print', Icons.print, () {
+                        buildOptionContainer('Print', Icons.print, () {
                           // Handle Print
                         }),
                         Divider(color: Colors.grey.shade400,),
-                        _buildOptionContainer('Add Tags', Icons.paste, () {
+                        buildOptionContainer('Add Tags', Icons.paste, () {
                           // Handle Add Tags
                         }),
                         Divider(color: Colors.grey.shade400,),
-                        _buildOptionContainer('Save to files', Icons.save, () {
+                        buildOptionContainer('Save to files', Icons.save, () {
                           // Handle Save to files
                         }),
                       ],
                     ),
                   ),
                 ),
-                TextButton(onPressed: (){}, child: const Text("Edit Actions... ",style: TextStyle(color: Colors.orange,),))
+                TextButton(onPressed: (){
+
+                }, child: const Text("Edit Actions... ",style: TextStyle(color: Colors.orange,),))
                
               ],
             ),
@@ -200,7 +202,7 @@ class DocScanned extends StatelessWidget {
     );
   }
 
-  Widget _buildOptionContainer(String title, IconData icon, Function() onTap) {
+  Widget buildOptionContainer(String title, IconData icon, Function() onTap) {
     return ListTile(
 
       title: Container(
