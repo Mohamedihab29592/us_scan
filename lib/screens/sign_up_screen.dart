@@ -20,42 +20,54 @@ class _SignUpScreenState extends State<SignUpScreen> {
       backgroundColor: Colors.white,
 
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(60.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Center(
-                  child: Text(
-                'Sign up',
-                style: TextStyle(fontSize: 20,color: Colors.black),
-              )),
-
-               const MyFormTextField(title: 'name',),
-              const MyFormTextField(title: 'Email',),
-              const MyFormTextField(title: 'password',),
-              const MyFormTextField(title: 'confirm\npassword',),
-
-              ElevatedButton(
-                onPressed: () {
-                  // Add your button click logic here
-                  Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => const ScanScreen()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.black, // Set the background color to black
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0), // Set the border radius
-                  ),
-                ),
-                child: const Text('Sign up',style: TextStyle(color: Color(0xffff6c22)),),
-              )
-
-
-
-
-            ],
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const Center(
+                      child: Text(
+                    'Sign up',
+                    style: TextStyle(fontSize: 20,color: Colors.black),
+                  )),
+                   SizedBox(height: 25,),
+              
+                   const MyFormTextField(title: 'name',),
+                  SizedBox(height: 25,),
+              
+                  const MyFormTextField(title: 'Email',),
+                  SizedBox(height: 25,),
+              
+                  const MyFormTextField(title: 'password',),
+                  SizedBox(height: 25,),
+              
+                  const MyFormTextField(title: 'confirm\npassword',),
+                  SizedBox(height: 25,),
+              
+              
+                  ElevatedButton(
+                    onPressed: () {
+                      // Add your button click logic here
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => const ScanScreen()),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black, // Set the background color to black
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8.0), // Set the border radius
+                      ),
+                    ),
+                    child: const Text('Sign up',style: TextStyle(color: Color(0xffff6c22)),),
+                  )
+              
+              
+              
+              
+                ],
+              ),
+            ),
           ),
         ),
       ),

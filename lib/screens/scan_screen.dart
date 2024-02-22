@@ -61,36 +61,28 @@ class _ScanScreenState extends State<ScanScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            const Spacer(),
-            Center(
-              child: SingleChildScrollView(
-                physics: const AlwaysScrollableScrollPhysics(),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 180,
-                      child: Image.asset("assets/images/no_scan_image.jpeg"),
-                    ),
-                    const Text(
-                      "You don't have any documents",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
-                      ),
-                    ),
-                    const Text(
-                      "Sync doc across smart phone tablets, and\n computers",
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(
-                      height: 150,
-                      child: Image.asset("assets/images/arrow.png"),
-                    ),
-                  ],
-                ),
+            Spacer(),
+            SizedBox(
+              height: 180,
+              child: Image.asset("assets/images/no_scan_image.jpeg"),
+            ),
+            const Text(
+              "You don't have any documents",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
               ),
             ),
-           const Spacer(),
+            const Text(
+              "Sync doc across smart phone tablets, and\n computers",
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(
+              height: 150,
+              child: Image.asset("assets/images/arrow.png"),
+            ),
+            const Spacer(),
+
             if(isOpen)
 
             Container(
